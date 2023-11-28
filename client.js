@@ -58,9 +58,108 @@ for (let employee of employees) {
 //
 function calculateIndividualEmployeeBonus(employee) {
   // your logic here
-  console.log('Employee within calculateIndividualEmployeeBonus', employee);
+  // console.log('Employee within calculateIndividualEmployeeBonus', employee);
   let employeeAfterPayRaise = {};
-employeeAfterPayRaise.name = employee.name;
+  let name = employee.name;
+  let annualSalary = parseInt(employee.annualSalary);
+  let totalCompensation = 0;
+  let bonusPercentage = 0;
+  let totalBonus = 0;
+
+  // check rating condition, apply bonus as described in readme.md
+  // console.log("employee rating:", employee.reviewRating);
+  switch (employee.reviewRating) {
+    case (5):
+      bonusPercentage = 0.10;
+      totalBonus = annualSalary * bonusPercentage;
+      // console.log("calculated bonus for current employee:", totalBonus);
+
+      totalCompensation = annualSalary + totalBonus;
+      // console.log("calculated totalCompensation for current employee:", totalCompensation);
+      employeeAfterPayRaise.name = name;
+      employeeAfterPayRaise.bonusPercentage = bonusPercentage;
+      employeeAfterPayRaise.totalCompensation = totalCompensation;
+      employeeAfterPayRaise.totalBonus = totalBonus;
+      break
+    case (4):
+      bonusPercentage = 0.06;
+      totalBonus = annualSalary * bonusPercentage;
+      // console.log("calculated bonus for current employee:", totalBonus);
+
+      totalCompensation = annualSalary + totalBonus;
+      // console.log("calculated totalCompensation for current employee:", totalCompensation);
+      employeeAfterPayRaise.name = name;
+      employeeAfterPayRaise.bonusPercentage = bonusPercentage;
+      employeeAfterPayRaise.totalCompensation = totalCompensation;
+      employeeAfterPayRaise.totalBonus = totalBonus;
+      break
+    case (3):
+      bonusPercentage = 0.04;
+      totalBonus = annualSalary * bonusPercentage;
+      // console.log("calculated bonus for current employee:", totalBonus);
+
+      totalCompensation = annualSalary + totalBonus;
+      // console.log("calculated totalCompensation for current employee:", totalCompensation);
+      employeeAfterPayRaise.name = name;
+      employeeAfterPayRaise.bonusPercentage = bonusPercentage;
+      employeeAfterPayRaise.totalCompensation = totalCompensation;
+      employeeAfterPayRaise.totalBonus = totalBonus;
+      break
+    default:
+      bonusPercentage = 0.00;
+      totalBonus = annualSalary * bonusPercentage;
+      // console.log("calculated bonus for current employee:", totalBonus);
+
+      totalCompensation = annualSalary + totalBonus;
+      // console.log("calculated totalCompensation for current employee:", totalCompensation);
+      employeeAfterPayRaise.name = name;
+      employeeAfterPayRaise.bonusPercentage = bonusPercentage;
+      employeeAfterPayRaise.totalCompensation = totalCompensation;
+      employeeAfterPayRaise.totalBonus = totalBonus;
+      break
+      
+  }
+
+  if (employee.employeeNumber.length === 4) {
+    let additionalBonusPercentage = 0.05;
+    bonusPercentage += additionalBonusPercentage;
+    totalBonus = annualSalary * bonusPercentage;
+    totalCompensation = annualSalary + totalBonus;
+
+    employeeAfterPayRaise.bonusPercentage = bonusPercentage;
+    employeeAfterPayRaise.totalCompensation = totalCompensation;
+    employeeAfterPayRaise.totalBonus = totalBonus;
+  }
+
+  if (employee.annualSalary > 65000) {
+    bonusPercentage -= 0.01;
+    totalBonus = annualSalary * bonusPercentage;
+    totalCompensation = annualSalary + totalBonus;
+
+    employeeAfterPayRaise.bonusPercentage = bonusPercentage;
+    employeeAfterPayRaise.totalCompensation = totalCompensation;
+    employeeAfterPayRaise.totalBonus = totalBonus;
+  }
+
+  if (bonusPercentage > 0.13) {
+    employeeAfterPayRaise.bonus = 0.13;
+    totalBonus = annualSalary * bonusPercentage;
+    totalCompensation = annualSalary + totalBonus;
+
+    employeeAfterPayRaise.bonusPercentage = bonusPercentage;
+    employeeAfterPayRaise.totalCompensation = totalCompensation;
+    employeeAfterPayRaise.totalBonus = totalBonus;
+  }
+  if (bonusPercentage < 0.00) {
+    bonusPercentage = 0.00;
+    totalBonus = annualSalary * bonusPercentage;
+    totalCompensation = annualSalary + totalBonus;
+
+    employeeAfterPayRaise.bonusPercentage = bonusPercentage;
+    employeeAfterPayRaise.totalCompensation = totalCompensation;
+    employeeAfterPayRaise.totalBonus = totalBonus;
+  }
   // return new object with bonus results
   return employeeAfterPayRaise;
 }
+
