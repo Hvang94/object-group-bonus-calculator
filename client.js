@@ -32,7 +32,7 @@ const employees = [
   }
 ];
 
-console.log('array of employee data: ',  employees );
+//console.log('array of employee data: ',  employees );
 
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
@@ -43,14 +43,22 @@ console.log('array of employee data: ',  employees );
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+/*
+* Loop through employees array
+*  Log to the console results from calling calculateIndividualEmployeeBonus(eachEmployee) 
+*/
 
+for (let employee of employees) {
+  //console.log('Current employee within loop:', employee);
+  console.log('Current employee bonus', calculateIndividualEmployeeBonus(employee));
+}
 
 
 // This function will calculate 1 employee's bonus!
 //
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
-  
+  console.log('Employee within calculateIndividualEmployeeBonus', employee);
   
   // return new object with bonus results
 
