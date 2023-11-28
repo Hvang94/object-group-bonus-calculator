@@ -56,10 +56,11 @@ for (let employee of employees) {
 
 // This function will calculate 1 employee's bonus!
 //
-function calculateIndividualEmployeeBonus( employee ) {  
+function calculateIndividualEmployeeBonus(employee) {
   // your logic here
   console.log('Employee within calculateIndividualEmployeeBonus', employee);
-  
+  let employeeAfterPayRaise = {};
+employeeAfterPayRaise.name = employee.name;
   // return new object with bonus results
-
+  return employeeAfterPayRaise;
 }
